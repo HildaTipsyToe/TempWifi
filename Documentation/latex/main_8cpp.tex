@@ -1,0 +1,477 @@
+\hypertarget{main_8cpp}{}\doxysection{C\+:/\+Skole/\+H3/\+Io\+T/\+Platform\+Io/\+Temp\+Wifi/src/main.cpp File Reference}
+\label{main_8cpp}\index{C:/Skole/H3/IoT/PlatformIo/TempWifi/src/main.cpp@{C:/Skole/H3/IoT/PlatformIo/TempWifi/src/main.cpp}}
+{\ttfamily \#include \char`\"{}FS.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SD.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$SPI.\+h$>$}\newline
+{\ttfamily \#include $<$Wi\+Fi.\+h$>$}\newline
+{\ttfamily \#include $<$ESPAsync\+Web\+Server.\+h$>$}\newline
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$One\+Wire.\+h$>$}\newline
+{\ttfamily \#include $<$Dallas\+Temperature.\+h$>$}\newline
+{\ttfamily \#include $<$NTPClient.\+h$>$}\newline
+{\ttfamily \#include $<$Wi\+Fi\+Udp.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}SPIFFS.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8cpp_a4260ed8874da804fb9ef9abba200b487}{ONE\+\_\+\+WIRE\+\_\+\+BUS}}~4
+\item 
+\#define \mbox{\hyperlink{main_8cpp_a7e2d8ef8f0724f23ce84b1e7d0c171d9}{SD\+\_\+\+CS}}~5
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Async\+Web\+Server \mbox{\hyperlink{main_8cpp_a85f30d66aa1231313c8553fd485b22b1}{server}} (80)
+\item 
+One\+Wire \mbox{\hyperlink{main_8cpp_a8a1d00f74fee641b711f7f00b8053c1a}{one\+Wire}} (\mbox{\hyperlink{main_8cpp_a4260ed8874da804fb9ef9abba200b487}{ONE\+\_\+\+WIRE\+\_\+\+BUS}})
+\item 
+NTPClient \mbox{\hyperlink{main_8cpp_a88e5d548d87de5bf811e50e939140823}{time\+Client}} (\mbox{\hyperlink{main_8cpp_a22f33e7e05df58bb6145bb6e543e232a}{ntp\+UDP}})
+\item 
+IPAddress \mbox{\hyperlink{main_8cpp_a04cb710c04c32d1afcdd2268bdcc20d9}{subnet}} (255, 255, 0, 0)
+\item 
+IPAddress \mbox{\hyperlink{main_8cpp_aba29cfda2a60ddbefaf48bd79f62f0de}{dns}} (8, 8, 8, 8)
+\begin{DoxyCompactList}\small\item\em DNS needed for NTPClient. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a833fde237d2113d6a9962135ae2ec962}{get\+Readings}} ()
+\begin{DoxyCompactList}\small\item\em Function to get temperature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a8c42102313651a66a4bf03ef1157398b}{get\+Time\+Stamp}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_a9b84465ba13d1ffbbd8984454b314f52}{log\+SDCard}} ()
+\begin{DoxyCompactList}\small\item\em Write the sensor readings on the SD card. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a539a0ab36133d19baf630c5f09367c1d}{delete\+File}} (fs\+::\+FS \&fs, const char $\ast$path)
+\begin{DoxyCompactList}\small\item\em delete data file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_aec64fd2f8a814768f286b901564ea866}{write\+File\+Sensor}} (fs\+::\+FS \&fs, const char $\ast$path, const char $\ast$message)
+\item 
+void \mbox{\hyperlink{main_8cpp_a22c708660ca240d82a93c9ab590d4410}{append\+File}} (fs\+::\+FS \&fs, const char $\ast$path, const char $\ast$message)
+\begin{DoxyCompactList}\small\item\em Append data to the SD card (DON\textquotesingle{}T MODIFY THIS FUNCTION) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a2bd24b36ef8125b5b50e866ffdf9c805}{init\+SPIFFS}} ()
+\begin{DoxyCompactList}\small\item\em Initialize SPIFFS. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{main_8cpp_a8d5ae9b7d229dfc996dd42be0814be60}{read\+DSTemperatureC}} ()
+\begin{DoxyCompactList}\small\item\em checks if the sensor is working, and giving a valid number \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{main_8cpp_a0c021f9721c3b479757f8e1b40624b6c}{processor}} (const String \&var)
+\begin{DoxyCompactList}\small\item\em Replaces placeholder with DS18\+B20 values. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{main_8cpp_a62f397dc6088ac03f320312b0d95b5a7}{read\+File}} (fs\+::\+FS \&fs, const char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Read File from SPIFFS. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_adfdfe491c3b951586aeba25a0b8ccf80}{write\+File}} (fs\+::\+FS \&fs, const char $\ast$path, const char $\ast$message)
+\begin{DoxyCompactList}\small\item\em Write file to SPIFFS. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_ae3cd6362ffeb905d21037483b851e723}{init\+Wi\+Fi}} ()
+\begin{DoxyCompactList}\small\item\em Initialize Wi\+Fi. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Setup method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\begin{DoxyCompactList}\small\item\em Dont need the loop, becuase of the websocket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{main_8cpp_a454c4ab726de0051333b4a76033000cf}{PARAM\+\_\+\+INPUT\+\_\+1}} = \char`\"{}ssid\char`\"{}
+\item 
+const char $\ast$ \mbox{\hyperlink{main_8cpp_a9051a630d6ada86bd19c8b2a81931a2d}{PARAM\+\_\+\+INPUT\+\_\+2}} = \char`\"{}pass\char`\"{}
+\item 
+const char $\ast$ \mbox{\hyperlink{main_8cpp_a24784b86c62864e188063e8e26148d11}{PARAM\+\_\+\+INPUT\+\_\+3}} = \char`\"{}ip\char`\"{}
+\item 
+const char $\ast$ \mbox{\hyperlink{main_8cpp_aead3b22e22f932390dc3a71cd0562944}{PARAM\+\_\+\+INPUT\+\_\+4}} = \char`\"{}gateway\char`\"{}
+\item 
+RTC\+\_\+\+DATA\+\_\+\+ATTR int \mbox{\hyperlink{main_8cpp_a29fa5ca95856a446faaf631b187ec596}{reading\+ID}} = 0
+\item 
+Dallas\+Temperature sensors \& \mbox{\hyperlink{main_8cpp_a18aa2e713b723d14e68fe9df63be78a3}{one\+Wire}}
+\item 
+String \mbox{\hyperlink{main_8cpp_a8d6e69693cc824bcb0c95766c8a13e83}{data\+Message}}
+\item 
+Wi\+Fi\+UDP \mbox{\hyperlink{main_8cpp_a22f33e7e05df58bb6145bb6e543e232a}{ntp\+UDP}}
+\item 
+String \mbox{\hyperlink{main_8cpp_aa3d4af477910310a754f78f753169ae8}{formatted\+Date}}
+\item 
+String \mbox{\hyperlink{main_8cpp_a16d11ae2a7b09076e335115cf450849f}{day\+Stamp}}
+\item 
+String \mbox{\hyperlink{main_8cpp_a893697b85f49be403fbd0531799a33aa}{time\+Stamp}}
+\item 
+float \mbox{\hyperlink{main_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}}
+\item 
+String \mbox{\hyperlink{main_8cpp_abf31a4e4b2a9a45efb76c56ddfd9e316}{temperatureC}} = \char`\"{}\char`\"{}
+\item 
+String \mbox{\hyperlink{main_8cpp_a9223d0e377e234d679946b194a81dcf3}{ssid}}
+\item 
+String \mbox{\hyperlink{main_8cpp_a519725e0c97d7f502af54e1b185fbc09}{pass}}
+\item 
+String \mbox{\hyperlink{main_8cpp_ac48f6ccb8e79c93e8c1d512be13826dd}{ip}}
+\item 
+String \mbox{\hyperlink{main_8cpp_abd1d7f174a4ef4b35ae6bb1bd36258bd}{gateway}}
+\item 
+const char $\ast$ \mbox{\hyperlink{main_8cpp_af994acd89c43bc66aeb3fa5affb4c3e2}{ssid\+Path}} = \char`\"{}/ssid.\+txt\char`\"{}
+\item 
+const char $\ast$ \mbox{\hyperlink{main_8cpp_ac6262da0f52f5aa8accf052bf0081104}{pass\+Path}} = \char`\"{}/pass.\+txt\char`\"{}
+\item 
+const char $\ast$ \mbox{\hyperlink{main_8cpp_a14f185ca928283b04850becc8a4ae72c}{ip\+Path}} = \char`\"{}/ip.\+txt\char`\"{}
+\item 
+const char $\ast$ \mbox{\hyperlink{main_8cpp_a78d0bd758ef93a5bb2a12320d8e4ea3b}{gateway\+Path}} = \char`\"{}/gateway.\+txt\char`\"{}
+\item 
+IPAddress \mbox{\hyperlink{main_8cpp_afc89c17e0dad19618562037a5fee14d7}{local\+IP}}
+\begin{DoxyCompactList}\small\item\em Set your IP address. \end{DoxyCompactList}\item 
+IPAddress \mbox{\hyperlink{main_8cpp_ab2206d87f787590559a8b670f1db4a25}{local\+Gateway}}
+\begin{DoxyCompactList}\small\item\em Set your Gateway IP address. \end{DoxyCompactList}\item 
+unsigned long \mbox{\hyperlink{main_8cpp_a86027ad9c9159f02624d136fb63364fe}{previous\+Millis}} = 0
+\begin{DoxyCompactList}\small\item\em Timer variables. \end{DoxyCompactList}\item 
+const long \mbox{\hyperlink{main_8cpp_afab23e0ee85e56261dace1dba900e39e}{interval}} = 10000
+\item 
+const char wifimanager\+\_\+html\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{main_8cpp_a739953672dde39285d2be91797afa84d}{PROGMEM}}
+\begin{DoxyCompactList}\small\item\em Html code for internet manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{main_8cpp_a4260ed8874da804fb9ef9abba200b487}\label{main_8cpp_a4260ed8874da804fb9ef9abba200b487}} 
+\index{main.cpp@{main.cpp}!ONE\_WIRE\_BUS@{ONE\_WIRE\_BUS}}
+\index{ONE\_WIRE\_BUS@{ONE\_WIRE\_BUS}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ONE\_WIRE\_BUS}{ONE\_WIRE\_BUS}}
+{\footnotesize\ttfamily \#define ONE\+\_\+\+WIRE\+\_\+\+BUS~4}
+
+\mbox{\Hypertarget{main_8cpp_a7e2d8ef8f0724f23ce84b1e7d0c171d9}\label{main_8cpp_a7e2d8ef8f0724f23ce84b1e7d0c171d9}} 
+\index{main.cpp@{main.cpp}!SD\_CS@{SD\_CS}}
+\index{SD\_CS@{SD\_CS}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{SD\_CS}{SD\_CS}}
+{\footnotesize\ttfamily \#define SD\+\_\+\+CS~5}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a22c708660ca240d82a93c9ab590d4410}\label{main_8cpp_a22c708660ca240d82a93c9ab590d4410}} 
+\index{main.cpp@{main.cpp}!appendFile@{appendFile}}
+\index{appendFile@{appendFile}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{appendFile()}{appendFile()}}
+{\footnotesize\ttfamily void append\+File (\begin{DoxyParamCaption}\item[{fs\+::\+FS \&}]{fs,  }\item[{const char $\ast$}]{path,  }\item[{const char $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Append data to the SD card (DON\textquotesingle{}T MODIFY THIS FUNCTION) 
+
+\mbox{\Hypertarget{main_8cpp_a539a0ab36133d19baf630c5f09367c1d}\label{main_8cpp_a539a0ab36133d19baf630c5f09367c1d}} 
+\index{main.cpp@{main.cpp}!deleteFile@{deleteFile}}
+\index{deleteFile@{deleteFile}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{deleteFile()}{deleteFile()}}
+{\footnotesize\ttfamily void delete\+File (\begin{DoxyParamCaption}\item[{fs\+::\+FS \&}]{fs,  }\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+delete data file 
+
+\mbox{\Hypertarget{main_8cpp_aba29cfda2a60ddbefaf48bd79f62f0de}\label{main_8cpp_aba29cfda2a60ddbefaf48bd79f62f0de}} 
+\index{main.cpp@{main.cpp}!dns@{dns}}
+\index{dns@{dns}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{dns()}{dns()}}
+{\footnotesize\ttfamily IPAddress dns (\begin{DoxyParamCaption}\item[{8}]{,  }\item[{8}]{,  }\item[{8}]{,  }\item[{8}]{ }\end{DoxyParamCaption})}
+
+
+
+DNS needed for NTPClient. 
+
+\mbox{\Hypertarget{main_8cpp_a833fde237d2113d6a9962135ae2ec962}\label{main_8cpp_a833fde237d2113d6a9962135ae2ec962}} 
+\index{main.cpp@{main.cpp}!getReadings@{getReadings}}
+\index{getReadings@{getReadings}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{getReadings()}{getReadings()}}
+{\footnotesize\ttfamily void get\+Readings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to get temperature. 
+
+\mbox{\Hypertarget{main_8cpp_a8c42102313651a66a4bf03ef1157398b}\label{main_8cpp_a8c42102313651a66a4bf03ef1157398b}} 
+\index{main.cpp@{main.cpp}!getTimeStamp@{getTimeStamp}}
+\index{getTimeStamp@{getTimeStamp}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{getTimeStamp()}{getTimeStamp()}}
+{\footnotesize\ttfamily void get\+Time\+Stamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Function to get date and time from NTPClient Bliver brugt når vi skal skrive det ind i min data.\+csv fil The formatted\+Date comes with the following format\+: 2018-\/05-\/28T16\+:00\+:13Z We need to extract date and time\mbox{\Hypertarget{main_8cpp_a2bd24b36ef8125b5b50e866ffdf9c805}\label{main_8cpp_a2bd24b36ef8125b5b50e866ffdf9c805}} 
+\index{main.cpp@{main.cpp}!initSPIFFS@{initSPIFFS}}
+\index{initSPIFFS@{initSPIFFS}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{initSPIFFS()}{initSPIFFS()}}
+{\footnotesize\ttfamily void init\+SPIFFS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize SPIFFS. 
+
+\mbox{\Hypertarget{main_8cpp_ae3cd6362ffeb905d21037483b851e723}\label{main_8cpp_ae3cd6362ffeb905d21037483b851e723}} 
+\index{main.cpp@{main.cpp}!initWiFi@{initWiFi}}
+\index{initWiFi@{initWiFi}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{initWiFi()}{initWiFi()}}
+{\footnotesize\ttfamily bool init\+Wi\+Fi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize Wi\+Fi. 
+
+\mbox{\Hypertarget{main_8cpp_a9b84465ba13d1ffbbd8984454b314f52}\label{main_8cpp_a9b84465ba13d1ffbbd8984454b314f52}} 
+\index{main.cpp@{main.cpp}!logSDCard@{logSDCard}}
+\index{logSDCard@{logSDCard}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{logSDCard()}{logSDCard()}}
+{\footnotesize\ttfamily void log\+SDCard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Write the sensor readings on the SD card. 
+
+\mbox{\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{main_8cpp_afe461d27b9c48d5921c00d521181f12f}} 
+\index{main.cpp@{main.cpp}!loop@{loop}}
+\index{loop@{loop}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Dont need the loop, becuase of the websocket. 
+
+\mbox{\Hypertarget{main_8cpp_a8a1d00f74fee641b711f7f00b8053c1a}\label{main_8cpp_a8a1d00f74fee641b711f7f00b8053c1a}} 
+\index{main.cpp@{main.cpp}!oneWire@{oneWire}}
+\index{oneWire@{oneWire}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{oneWire()}{oneWire()}}
+{\footnotesize\ttfamily One\+Wire one\+Wire (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{main_8cpp_a4260ed8874da804fb9ef9abba200b487}{ONE\+\_\+\+WIRE\+\_\+\+BUS}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a0c021f9721c3b479757f8e1b40624b6c}\label{main_8cpp_a0c021f9721c3b479757f8e1b40624b6c}} 
+\index{main.cpp@{main.cpp}!processor@{processor}}
+\index{processor@{processor}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{processor()}{processor()}}
+{\footnotesize\ttfamily String processor (\begin{DoxyParamCaption}\item[{const String \&}]{var }\end{DoxyParamCaption})}
+
+
+
+Replaces placeholder with DS18\+B20 values. 
+
+\mbox{\Hypertarget{main_8cpp_a8d5ae9b7d229dfc996dd42be0814be60}\label{main_8cpp_a8d5ae9b7d229dfc996dd42be0814be60}} 
+\index{main.cpp@{main.cpp}!readDSTemperatureC@{readDSTemperatureC}}
+\index{readDSTemperatureC@{readDSTemperatureC}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{readDSTemperatureC()}{readDSTemperatureC()}}
+{\footnotesize\ttfamily String read\+DSTemperatureC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+checks if the sensor is working, and giving a valid number 
+
+\mbox{\Hypertarget{main_8cpp_a62f397dc6088ac03f320312b0d95b5a7}\label{main_8cpp_a62f397dc6088ac03f320312b0d95b5a7}} 
+\index{main.cpp@{main.cpp}!readFile@{readFile}}
+\index{readFile@{readFile}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{readFile()}{readFile()}}
+{\footnotesize\ttfamily String read\+File (\begin{DoxyParamCaption}\item[{fs\+::\+FS \&}]{fs,  }\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Read File from SPIFFS. 
+
+\mbox{\Hypertarget{main_8cpp_a85f30d66aa1231313c8553fd485b22b1}\label{main_8cpp_a85f30d66aa1231313c8553fd485b22b1}} 
+\index{main.cpp@{main.cpp}!server@{server}}
+\index{server@{server}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{server()}{server()}}
+{\footnotesize\ttfamily Async\+Web\+Server server (\begin{DoxyParamCaption}\item[{80}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{main.cpp@{main.cpp}!setup@{setup}}
+\index{setup@{setup}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Setup method. 
+
+Initialize SD card
+
+If the data.\+txt file doesn\textquotesingle{}t exist Create a file on the SD card and write the data labels\mbox{\Hypertarget{main_8cpp_a04cb710c04c32d1afcdd2268bdcc20d9}\label{main_8cpp_a04cb710c04c32d1afcdd2268bdcc20d9}} 
+\index{main.cpp@{main.cpp}!subnet@{subnet}}
+\index{subnet@{subnet}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{subnet()}{subnet()}}
+{\footnotesize\ttfamily IPAddress subnet (\begin{DoxyParamCaption}\item[{255}]{,  }\item[{255}]{,  }\item[{0}]{,  }\item[{0}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a88e5d548d87de5bf811e50e939140823}\label{main_8cpp_a88e5d548d87de5bf811e50e939140823}} 
+\index{main.cpp@{main.cpp}!timeClient@{timeClient}}
+\index{timeClient@{timeClient}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{timeClient()}{timeClient()}}
+{\footnotesize\ttfamily NTPClient time\+Client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{main_8cpp_a22f33e7e05df58bb6145bb6e543e232a}{ntp\+UDP}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_adfdfe491c3b951586aeba25a0b8ccf80}\label{main_8cpp_adfdfe491c3b951586aeba25a0b8ccf80}} 
+\index{main.cpp@{main.cpp}!writeFile@{writeFile}}
+\index{writeFile@{writeFile}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{writeFile()}{writeFile()}}
+{\footnotesize\ttfamily void write\+File (\begin{DoxyParamCaption}\item[{fs\+::\+FS \&}]{fs,  }\item[{const char $\ast$}]{path,  }\item[{const char $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Write file to SPIFFS. 
+
+\mbox{\Hypertarget{main_8cpp_aec64fd2f8a814768f286b901564ea866}\label{main_8cpp_aec64fd2f8a814768f286b901564ea866}} 
+\index{main.cpp@{main.cpp}!writeFileSensor@{writeFileSensor}}
+\index{writeFileSensor@{writeFileSensor}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{writeFileSensor()}{writeFileSensor()}}
+{\footnotesize\ttfamily void write\+File\+Sensor (\begin{DoxyParamCaption}\item[{fs\+::\+FS \&}]{fs,  }\item[{const char $\ast$}]{path,  }\item[{const char $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_a8d6e69693cc824bcb0c95766c8a13e83}\label{main_8cpp_a8d6e69693cc824bcb0c95766c8a13e83}} 
+\index{main.cpp@{main.cpp}!dataMessage@{dataMessage}}
+\index{dataMessage@{dataMessage}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{dataMessage}{dataMessage}}
+{\footnotesize\ttfamily String data\+Message}
+
+\mbox{\Hypertarget{main_8cpp_a16d11ae2a7b09076e335115cf450849f}\label{main_8cpp_a16d11ae2a7b09076e335115cf450849f}} 
+\index{main.cpp@{main.cpp}!dayStamp@{dayStamp}}
+\index{dayStamp@{dayStamp}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{dayStamp}{dayStamp}}
+{\footnotesize\ttfamily String day\+Stamp}
+
+\mbox{\Hypertarget{main_8cpp_aa3d4af477910310a754f78f753169ae8}\label{main_8cpp_aa3d4af477910310a754f78f753169ae8}} 
+\index{main.cpp@{main.cpp}!formattedDate@{formattedDate}}
+\index{formattedDate@{formattedDate}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{formattedDate}{formattedDate}}
+{\footnotesize\ttfamily String formatted\+Date}
+
+\mbox{\Hypertarget{main_8cpp_abd1d7f174a4ef4b35ae6bb1bd36258bd}\label{main_8cpp_abd1d7f174a4ef4b35ae6bb1bd36258bd}} 
+\index{main.cpp@{main.cpp}!gateway@{gateway}}
+\index{gateway@{gateway}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{gateway}{gateway}}
+{\footnotesize\ttfamily String gateway}
+
+\mbox{\Hypertarget{main_8cpp_a78d0bd758ef93a5bb2a12320d8e4ea3b}\label{main_8cpp_a78d0bd758ef93a5bb2a12320d8e4ea3b}} 
+\index{main.cpp@{main.cpp}!gatewayPath@{gatewayPath}}
+\index{gatewayPath@{gatewayPath}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{gatewayPath}{gatewayPath}}
+{\footnotesize\ttfamily const char$\ast$ gateway\+Path = \char`\"{}/gateway.\+txt\char`\"{}}
+
+\mbox{\Hypertarget{main_8cpp_afab23e0ee85e56261dace1dba900e39e}\label{main_8cpp_afab23e0ee85e56261dace1dba900e39e}} 
+\index{main.cpp@{main.cpp}!interval@{interval}}
+\index{interval@{interval}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{interval}{interval}}
+{\footnotesize\ttfamily const long interval = 10000}
+
+\mbox{\Hypertarget{main_8cpp_ac48f6ccb8e79c93e8c1d512be13826dd}\label{main_8cpp_ac48f6ccb8e79c93e8c1d512be13826dd}} 
+\index{main.cpp@{main.cpp}!ip@{ip}}
+\index{ip@{ip}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ip}{ip}}
+{\footnotesize\ttfamily String ip}
+
+\mbox{\Hypertarget{main_8cpp_a14f185ca928283b04850becc8a4ae72c}\label{main_8cpp_a14f185ca928283b04850becc8a4ae72c}} 
+\index{main.cpp@{main.cpp}!ipPath@{ipPath}}
+\index{ipPath@{ipPath}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ipPath}{ipPath}}
+{\footnotesize\ttfamily const char$\ast$ ip\+Path = \char`\"{}/ip.\+txt\char`\"{}}
+
+\mbox{\Hypertarget{main_8cpp_ab2206d87f787590559a8b670f1db4a25}\label{main_8cpp_ab2206d87f787590559a8b670f1db4a25}} 
+\index{main.cpp@{main.cpp}!localGateway@{localGateway}}
+\index{localGateway@{localGateway}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{localGateway}{localGateway}}
+{\footnotesize\ttfamily IPAddress local\+Gateway}
+
+
+
+Set your Gateway IP address. 
+
+\mbox{\Hypertarget{main_8cpp_afc89c17e0dad19618562037a5fee14d7}\label{main_8cpp_afc89c17e0dad19618562037a5fee14d7}} 
+\index{main.cpp@{main.cpp}!localIP@{localIP}}
+\index{localIP@{localIP}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{localIP}{localIP}}
+{\footnotesize\ttfamily IPAddress local\+IP}
+
+
+
+Set your IP address. 
+
+\mbox{\Hypertarget{main_8cpp_a22f33e7e05df58bb6145bb6e543e232a}\label{main_8cpp_a22f33e7e05df58bb6145bb6e543e232a}} 
+\index{main.cpp@{main.cpp}!ntpUDP@{ntpUDP}}
+\index{ntpUDP@{ntpUDP}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ntpUDP}{ntpUDP}}
+{\footnotesize\ttfamily Wi\+Fi\+UDP ntp\+UDP}
+
+\mbox{\Hypertarget{main_8cpp_a18aa2e713b723d14e68fe9df63be78a3}\label{main_8cpp_a18aa2e713b723d14e68fe9df63be78a3}} 
+\index{main.cpp@{main.cpp}!oneWire@{oneWire}}
+\index{oneWire@{oneWire}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{oneWire}{oneWire}}
+{\footnotesize\ttfamily Dallas\+Temperature sensors\& one\+Wire}
+
+\mbox{\Hypertarget{main_8cpp_a454c4ab726de0051333b4a76033000cf}\label{main_8cpp_a454c4ab726de0051333b4a76033000cf}} 
+\index{main.cpp@{main.cpp}!PARAM\_INPUT\_1@{PARAM\_INPUT\_1}}
+\index{PARAM\_INPUT\_1@{PARAM\_INPUT\_1}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{PARAM\_INPUT\_1}{PARAM\_INPUT\_1}}
+{\footnotesize\ttfamily const char$\ast$ PARAM\+\_\+\+INPUT\+\_\+1 = \char`\"{}ssid\char`\"{}}
+
+\mbox{\Hypertarget{main_8cpp_a9051a630d6ada86bd19c8b2a81931a2d}\label{main_8cpp_a9051a630d6ada86bd19c8b2a81931a2d}} 
+\index{main.cpp@{main.cpp}!PARAM\_INPUT\_2@{PARAM\_INPUT\_2}}
+\index{PARAM\_INPUT\_2@{PARAM\_INPUT\_2}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{PARAM\_INPUT\_2}{PARAM\_INPUT\_2}}
+{\footnotesize\ttfamily const char$\ast$ PARAM\+\_\+\+INPUT\+\_\+2 = \char`\"{}pass\char`\"{}}
+
+\mbox{\Hypertarget{main_8cpp_a24784b86c62864e188063e8e26148d11}\label{main_8cpp_a24784b86c62864e188063e8e26148d11}} 
+\index{main.cpp@{main.cpp}!PARAM\_INPUT\_3@{PARAM\_INPUT\_3}}
+\index{PARAM\_INPUT\_3@{PARAM\_INPUT\_3}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{PARAM\_INPUT\_3}{PARAM\_INPUT\_3}}
+{\footnotesize\ttfamily const char$\ast$ PARAM\+\_\+\+INPUT\+\_\+3 = \char`\"{}ip\char`\"{}}
+
+\mbox{\Hypertarget{main_8cpp_aead3b22e22f932390dc3a71cd0562944}\label{main_8cpp_aead3b22e22f932390dc3a71cd0562944}} 
+\index{main.cpp@{main.cpp}!PARAM\_INPUT\_4@{PARAM\_INPUT\_4}}
+\index{PARAM\_INPUT\_4@{PARAM\_INPUT\_4}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{PARAM\_INPUT\_4}{PARAM\_INPUT\_4}}
+{\footnotesize\ttfamily const char$\ast$ PARAM\+\_\+\+INPUT\+\_\+4 = \char`\"{}gateway\char`\"{}}
+
+\mbox{\Hypertarget{main_8cpp_a519725e0c97d7f502af54e1b185fbc09}\label{main_8cpp_a519725e0c97d7f502af54e1b185fbc09}} 
+\index{main.cpp@{main.cpp}!pass@{pass}}
+\index{pass@{pass}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{pass}{pass}}
+{\footnotesize\ttfamily String pass}
+
+\mbox{\Hypertarget{main_8cpp_ac6262da0f52f5aa8accf052bf0081104}\label{main_8cpp_ac6262da0f52f5aa8accf052bf0081104}} 
+\index{main.cpp@{main.cpp}!passPath@{passPath}}
+\index{passPath@{passPath}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{passPath}{passPath}}
+{\footnotesize\ttfamily const char$\ast$ pass\+Path = \char`\"{}/pass.\+txt\char`\"{}}
+
+\mbox{\Hypertarget{main_8cpp_a86027ad9c9159f02624d136fb63364fe}\label{main_8cpp_a86027ad9c9159f02624d136fb63364fe}} 
+\index{main.cpp@{main.cpp}!previousMillis@{previousMillis}}
+\index{previousMillis@{previousMillis}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{previousMillis}{previousMillis}}
+{\footnotesize\ttfamily unsigned long previous\+Millis = 0}
+
+
+
+Timer variables. 
+
+\mbox{\Hypertarget{main_8cpp_a739953672dde39285d2be91797afa84d}\label{main_8cpp_a739953672dde39285d2be91797afa84d}} 
+\index{main.cpp@{main.cpp}!PROGMEM@{PROGMEM}}
+\index{PROGMEM@{PROGMEM}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{PROGMEM}{PROGMEM}}
+{\footnotesize\ttfamily const char wifimanager\+\_\+html \mbox{[}$\,$\mbox{]} PROGMEM}
+
+
+
+Html code for internet manager. 
+
+\mbox{\Hypertarget{main_8cpp_a29fa5ca95856a446faaf631b187ec596}\label{main_8cpp_a29fa5ca95856a446faaf631b187ec596}} 
+\index{main.cpp@{main.cpp}!readingID@{readingID}}
+\index{readingID@{readingID}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{readingID}{readingID}}
+{\footnotesize\ttfamily RTC\+\_\+\+DATA\+\_\+\+ATTR int reading\+ID = 0}
+
+\mbox{\Hypertarget{main_8cpp_a9223d0e377e234d679946b194a81dcf3}\label{main_8cpp_a9223d0e377e234d679946b194a81dcf3}} 
+\index{main.cpp@{main.cpp}!ssid@{ssid}}
+\index{ssid@{ssid}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ssid}{ssid}}
+{\footnotesize\ttfamily String ssid}
+
+\mbox{\Hypertarget{main_8cpp_af994acd89c43bc66aeb3fa5affb4c3e2}\label{main_8cpp_af994acd89c43bc66aeb3fa5affb4c3e2}} 
+\index{main.cpp@{main.cpp}!ssidPath@{ssidPath}}
+\index{ssidPath@{ssidPath}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ssidPath}{ssidPath}}
+{\footnotesize\ttfamily const char$\ast$ ssid\+Path = \char`\"{}/ssid.\+txt\char`\"{}}
+
+\mbox{\Hypertarget{main_8cpp_afc1d28cfbce795d6ea954ebe725241f5}\label{main_8cpp_afc1d28cfbce795d6ea954ebe725241f5}} 
+\index{main.cpp@{main.cpp}!temperature@{temperature}}
+\index{temperature@{temperature}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{temperature}{temperature}}
+{\footnotesize\ttfamily float temperature}
+
+\mbox{\Hypertarget{main_8cpp_abf31a4e4b2a9a45efb76c56ddfd9e316}\label{main_8cpp_abf31a4e4b2a9a45efb76c56ddfd9e316}} 
+\index{main.cpp@{main.cpp}!temperatureC@{temperatureC}}
+\index{temperatureC@{temperatureC}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{temperatureC}{temperatureC}}
+{\footnotesize\ttfamily String temperatureC = \char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{main_8cpp_a893697b85f49be403fbd0531799a33aa}\label{main_8cpp_a893697b85f49be403fbd0531799a33aa}} 
+\index{main.cpp@{main.cpp}!timeStamp@{timeStamp}}
+\index{timeStamp@{timeStamp}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{timeStamp}{timeStamp}}
+{\footnotesize\ttfamily String time\+Stamp}
+
